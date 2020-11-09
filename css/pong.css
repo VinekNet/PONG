@@ -12,7 +12,7 @@ body{
 }
 
 #terrain{
-
+/**dessin du tableau**/
 border:1px solid white ;
 width:800px;
 height:400px;
@@ -21,11 +21,11 @@ position: relative;
 }
 
 #balle{
-
+/**dessin de la balle**/
     width:20px;
     height:20px;
     background-color: white;
-    border-radius: 0px;
+    border-radius: 25px;
     position:absolute;
     top:50%;
     left:50%;
