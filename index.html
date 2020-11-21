@@ -1,4 +1,4 @@
-<html>
+<html lang="fr">
     <head>
         
         <link rel="stylesheet" href="css/pong.css">
@@ -9,21 +9,16 @@
     </head>
     <body>
         <div id="terrain">
-            <div id="balle">
-                
-            </div>
-
-
-            <div id="raquette">
-                
-            </div>
-            <div id="raquetteDROITE">
-                
-            </div>
-
-
+            <div id="balle"></div>
+            <div class="raquette" id="raquetteG"></div>
+            <div class="raquette" id="raquetteD"></div>
         </div>
-        <script src="js/pong.js"></script>
+        <!--On récupère en source tous les fichiers JS-->
+
+        <script src="js/Balle.js"></script>
+        <script src="js/Terrain.js"></script>
+        <script src="js/Raquette.js"></script>
+        <script src="js/Pong.js"></script>
     </body>
     
 </html>

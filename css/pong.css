@@ -1,15 +1,14 @@
-
 body{
-    /** permet de centrer les éléments dans la page **/
-  display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color:#000;
-    color:#fff;
-    font-family: monospace;
+  /** permet de centrer les éléments dans la page **/
+display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color:#000;
+  color:#fff;
+  font-family: monospace;
 }
 
 #terrain{
@@ -25,28 +24,28 @@ border-right: #000;
 
 #balle{
 /**dessin de la balle**/
-    width:20px;
-    height:20px;
-    background-color: white;
-    border-radius: 25px;
-    position:relative;
-    top:50%;
-    left:50%;
+  width:20px;
+  height:20px;
+  background-color: white;
+  border-radius: 25px;
+  position:relative;
+  top:50%;
+  left:50%;
 }
-#raquette{
+.raquette{
   background-color: white;
   width:10px;
   height:100px;
   position: relative;
-  top:50%;
-  left:0%;
+  top:50%;}
+
+#raquetteG{
+  /**dessin de la raquette gauche**/
+left:10%;
 }
 
-#raquetteDROITE{
-  background-color: white;
-  width:10px;
-  height:100px;
-  position: relative;
-  top:0%;
-  left:100%;
+#raquetteD{
+  /**dessin de la raquette droite**/
+
+left:90%;
 }
