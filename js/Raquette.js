@@ -3,6 +3,8 @@ class Raquette{
         this.$html=$html;
         this.haut=parseInt($html.css("top"));
         this.hauteur=parseInt($html.css("height"));
+        this.gauche=parseInt($html.css("left"));
+        this.largeur=parseInt($html.css("width"));
         this.vitesse=1;
         this.direction=1;
     }
@@ -10,9 +12,16 @@ class Raquette{
     get bas(){
         return this.haut+this.hauteur;
     }
+
+    get droite(){
+        return this.gauche+this.largeur;
+    }
     //setter des raquettes
     set bas(value){
         this.haut=value-this.hauteur;
+    }
+    set droite(value){
+        this.gauche=value-this.largeur;
     }
     majHTML(){
         this.$html.css("top",raquetteGauche.haut);
