@@ -7,13 +7,22 @@ class  Balle{
         this.vitesseX=2;
         this.vitesseY=0.5;
     }
-    //getter de la balle
-    get bas(){
-        return this.haut+this.rayon;}
-    //setter de la balle
-    set bas(value) {
-            this.haut = value - this.rayon;
-        }
+ //getter de la balle
+ get bas(){
+    return this.haut+this.hauteur;
+}
+
+get droite(){
+    return this.gauche+this.largeur;
+}
+//setter de la balle
+set bas(value){
+    this.haut=value-this.hauteur;
+}
+set droite(value){
+    this.gauche=value-this.largeur;
+}
+
     majHTML(){
         this.$html.css("left",balle.gauche);
         this.$html.css("top",balle.haut);
