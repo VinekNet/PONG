@@ -11,21 +11,48 @@ window.addEventListener("keydown", function (event) {
 
     //J1
     if(event.key === "a"){
-        this.haut+=this.vitesse*this.direction;
+
         raquetteGauche.monte();
     }
     if(event.key === "q"){
-        this.haut+=this.vitesse*this.direction;
+
         raquetteGauche.descend();
     }
     //J2
     if(event.key === "p"){
-        this.haut+=this.vitesse*this.direction;
+
         raquetteDroite.monte();
     }
     if(event.key === "m"){
-        this.haut+=this.vitesse*this.direction;
+
         raquetteDroite.descend();
+    }
+    
+    event.preventDefault(); 
+}, true);
+//Détection d'arrêt d'INPUTS
+window.addEventListener("keyup", function (event) {
+    if (event.defaultPrevented) {
+        return;
+    }
+
+    //J1
+    if(event.key === "a"){
+
+        raquetteGauche.stop();
+    }
+    if(event.key === "q"){
+
+        raquetteGauche.stop();
+    }
+    //J2
+    if(event.key === "p"){
+
+        raquetteDroite.stop();
+    }
+    if(event.key === "m"){
+
+        raquetteDroite.stop();
     }
     
     event.preventDefault(); 
@@ -35,7 +62,7 @@ window.addEventListener("keydown", function (event) {
 if( Math.random() > 0.5){
     balle.vitesseX*=-1; }
 setInterval(function(){
-    raquetteDroite.mouvement();
     raquetteGauche.mouvement();
+    raquetteDroite.mouvement();
     balle.mouvementBalle();
 }, 10);

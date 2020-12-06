@@ -5,8 +5,8 @@ class Raquette{
         this.hauteur=parseInt($html.css("height"));
         this.gauche=parseInt($html.css("left"));
         this.largeur=parseInt($html.css("width"));
-        this.vitesse=1;
-        this.direction=1;
+        this.vitesse=4;
+        this.direction=0;
     }
     //getter des raquettes
     get bas(){
@@ -26,10 +26,9 @@ class Raquette{
     }
 
     majHTML(){
-        this.$html.css("top",raquetteGauche.haut);
-        this.$html.css("top",raquetteDroite.haut);
-        this.$html.css("height",raquetteGauche.hauteur);
-        this.$html.css("height",raquetteDroite.hauteur);
+        this.$html.css("top",this.haut);
+        this.$html.css("height",this.hauteur);
+ 
     }
     monte(){
         this.direction=-1;
@@ -42,10 +41,13 @@ class Raquette{
         this.limiteMouvements();
         this.majHTML();
     }
+    stop() {
+        this.direction = 0;
+    }
     limiteMouvements(){
         //console.log(this.bas);
-        if (this.bas>terrain.hauteur){this.monte();}
-        if (this.haut<0){this.descend();}
+        if (this.bas>terrain.hauteur){ this.bas = terrain.hauteur;this.stop();}
+        if (this.haut<0){ this.haut=0;this.stop();}
     }
 
 
