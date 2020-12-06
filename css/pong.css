@@ -36,7 +36,7 @@ border-right: #000;
   background-color: white;
   width:10px;
   height:100px;
-  position: relative;
+  position: absolute;
   top:50%;}
 
 #raquetteG{
@@ -47,5 +47,5 @@ left:10%;
 #raquetteD{
   /**dessin de la raquette droite**/
 
-left:90%;
+right:10%;
 }

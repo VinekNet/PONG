@@ -20,9 +20,11 @@ class Raquette{
     set bas(value){
         this.haut=value-this.hauteur;
     }
+    
     set droite(value){
         this.gauche=value-this.largeur;
     }
+
     majHTML(){
         this.$html.css("top",raquetteGauche.haut);
         this.$html.css("top",raquetteDroite.haut);
@@ -36,37 +38,7 @@ class Raquette{
         this.direction=1;
     }
     mouvement(){
-        window.addEventListener("keydown", function (event) {
-            if (event.defaultPrevented) {
-                return;
-            }
-            /*J'ai essayé de faire fonctionner les raquettes avec raquetteGauche et raquetteDroite (les fonctions "joueur" 1 et 2 
-            n'existant pas dans mon code et ne sachant pas où elle sont sensées se trouver)
-            Malheureusement je n'ai pas non plus à voir pourquoi ça ne fonctionnait pas, la console ne me rendant aucune erreur
-            De plus, elles semblent utiliser un référent différent pour leur position top, étant donné que le 50% des la raquetteGauche est différent de la Droite 
-            (alors qu'elles utilisent la même classe*/
-            //J1
-            if(event.key === "a"){
-                this.haut+=this.vitesse*this.direction;
-                raquetteGauche.monte();
-            }
-            if(event.key === "q"){
-                this.haut+=this.vitesse*this.direction;
-                raquetteGauche.descend();
-            }
-            //J2
-            if(event.key === "p"){
-                this.haut+=this.vitesse*this.direction;
-                raquetteDroite.monte();
-            }
-            if(event.key === "m"){
-                this.haut+=this.vitesse*this.direction;
-                raquetteDroite.descend();
-            }
-            
-            event.preventDefault(); 
-        }, true);
-       
+        this.haut += this.vitesse * this.direction;       
         this.limiteMouvements();
         this.majHTML();
     }
@@ -78,7 +50,9 @@ class Raquette{
 
 
 }
-/** window.addEventListener("keydown", function (event) {
+/** 
+  
+    window.addEventListener("keydown", function (event) {
         if (event.defaultPrevented) { return}
         console.log("La touche '"+event.key+ "' a été enfoncée")
         event.preventDefault();
@@ -88,4 +62,6 @@ class Raquette{
         if (event.defaultPrevented) { return}
         console.log("La touche '"+event.key+ "' a été relachée")
         event.preventDefault();
-    }, true);**/
+    }, true);
+    
+    **/
