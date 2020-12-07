@@ -1,4 +1,4 @@
-class  Balle{
+class Balle{
     constructor($html){
         this.$html=$html;
         this.gauche=parseInt($("#balle").css("left"));
@@ -32,7 +32,7 @@ defAngle() {
 accelerer() {
     if (Math.abs(this.vitesse) < this.vitesseMax) {
         
-        this.vitesse *= this.acceleration;
+        this.vitesse *= 1.01;
         //console.log(Math.abs(this.vitesse));
     }
     else {
@@ -58,15 +58,17 @@ accelerer() {
         //à droite on reset 
         if(balle.gauche>terrain.largeur-balle.rayon){
             if( Math.random() > 0.5){
-            balle.vitesse*=-1; }; 
+            balle.vitesse=-2; }else{balle.vitesse=2;} 
             balle.gauche=terrain.largeur/2;
             balle.haut=terrain.hauteur/2;}
+                
         //rebond du bas
         if(balle.haut>terrain.hauteur-balle.rayon){ this.angle = -(this.angle);}
         //à gauche on reset
         if(balle.gauche<0){
             if( Math.random() > 0.5){
-                balle.vitesse*=-1; }; 
+                balle.vitesse=2; } 
+            else{balle.vitesse=-2;}
                 balle.gauche=terrain.largeur/2;
                 balle.haut=terrain.hauteur/2;}
         //rebond du haut
@@ -74,23 +76,29 @@ accelerer() {
 
         //rebondRaquette
         if (this.gauche < raquetteGauche.droite) { //si la balle dépasse à gauche de la raquette gauche
-            if (this.bas > raquetteGauche.haut) { //et si la balle est plus basse que le haut de la raquette
-                if (this.haut < raquetteGauche.bas) { // et si la balle est plus haute que le bas de la raquette
-
+            if (this.haut > raquetteGauche.haut) { //et si la balle est plus basse que le haut de la raquette
+                
+                    if (this.haut < raquetteGauche.bas) { // et si la balle est plus haute que le bas de la raquette
+                    
+                        this.accelerer();
+                        this.angle = Math.PI - this.angle;
+                       
+                    }
+                
+            }
+            }
+        
+        //D
+        //rebondRaquetteD
+        if (this.gauche> raquetteDroite.gauche) { //si la balle dépasse à gauche de la raquette gauche
+            if (this.haut > raquetteDroite.haut) { //et si la balle est plus basse que le haut de la raquette
+                console.log("test");
+                if (this.haut < raquetteDroite.bas) { // et si la balle est plus haute que le bas de la raquette
+                        
                     this.accelerer();
                     this.angle = Math.PI - this.angle;
-                   
-                }
+                       
+                }    
             }
         }
-        //D
-        if(this.droite < raquetteDroite.gauche){ 
-            if(this.bas > raquetteDroite.haut){
-              if(this.haut < raquetteDroite.bas){ 
-                this.accelerer();
-                this.angle = Math.PI - this.angle;
-                }
-            }
-        }  
-    }
-}
+}}

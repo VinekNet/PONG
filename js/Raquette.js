@@ -59,7 +59,6 @@ class Raquette{
         console.log("La touche '"+event.key+ "' a été enfoncée")
         event.preventDefault();
     }, true);
-
  window.addEventListener("keyup", function (event) {
         if (event.defaultPrevented) { return}
         console.log("La touche '"+event.key+ "' a été relachée")
